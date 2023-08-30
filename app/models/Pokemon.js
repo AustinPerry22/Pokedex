@@ -2,7 +2,7 @@ export class Pokemon {
     constructor(data) {
         this.name = data.name
         this.nickName = data.nickName || this.name
-        this.img = data.sprites.front_default
+        this.img = data.img || data.sprites.front_default
         this.weight = data.weight
         this.height = data.height
         this.types = this.computedTypes(data.types)
@@ -11,7 +11,7 @@ export class Pokemon {
     computedTypes(typeArr) {
         let myTypes = ''
         typeArr.forEach(t => {
-            myTypes += `${t.type.name} `
+            myTypes += `${t?.type?.name || t} `
         })
         return myTypes
     }
@@ -34,6 +34,7 @@ export class Pokemon {
           <div class="col-6">Weight: ${this.weight}</div>
           <div class="col-6">Height: ${this.height}</div>
           <div class="col-6">Types: ${this.types}</div>
+          <button class="btn btn-primary" onclick="app.SandboxPokemonController.catchPokemon()">Catch ${this.name}</button>
         </section>
       `
     }
