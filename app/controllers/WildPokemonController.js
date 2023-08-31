@@ -6,7 +6,7 @@ import { setHTML } from "../utils/Writer.js"
 
 function _drawWildPokemon() {
     let content = ''
-    AppState.wildPokemon.forEach(p => content += Pokemon.wildTemplate(p))
+    AppState.wildPokemon.forEach(p => content += Pokemon.listTemplate(p))
     setHTML('wildPokemon', content)
 }
 

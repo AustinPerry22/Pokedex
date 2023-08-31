@@ -39,7 +39,15 @@ export class Pokemon {
       `
     }
 
-    static wildTemplate(pokemon) {
+    get myListTemplate() {
+        return `<section class="row">
+        <div class="col-12">
+          <h5 class="selectable" onclick="app.SandboxPokemonController.setActivePokemon('${this.name}')">${this.name}</h5>
+        </div>
+      </section>`
+    }
+
+    static listTemplate(pokemon) {
         return `<section class="row">
         <div class="col-12">
           <h5 class="selectable" onclick="app.WildPokemonController.setActivePokemon('${pokemon.url}')">${pokemon.name}</h5>
